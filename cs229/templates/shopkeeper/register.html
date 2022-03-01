@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}ShopKeeper {% endblock title %}
+{% block body %}
+<div class="container">
+<h1 class="text-center">Registration</h1>
+<form method="post" action="/shopkeeper/register">
+{% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputname1" class="form-label">Shop Name</label>
+        <input type="text" class="form-control" id="exampleInputname1" name="name" placeholder="Enter Your Shops Name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputcontact" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" id="exampleInputcontact" name="number"  placeholder="Enter Your Shops Contact Number">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter Your Business Email Id">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password"  placeholder="Enter Your Password">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputopeningtime" class="form-label">Opening Time</label>
+        <input type="time" class="form-control" id="exampleInputOpeningTime" name="opentime">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputclosingingtime" class="form-label">Closing Time</label>
+        <input type="time" class="form-control" id="exampleInputClosingTime" name="closetime">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>   
+</form>
+</div>
+{% endblock body %}
+
