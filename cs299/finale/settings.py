@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'customer.apps.CustomerConfig',
     'shopkeeper.apps.ShopkeeperConfig',
     'django.contrib.admin',
     'django.contrib.auth',

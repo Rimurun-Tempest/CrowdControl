@@ -8,11 +8,11 @@ from django.contrib import messages
 
 def register(request):
     if request.method == "POST":
-        name = request.POST.get('name')
-        phone = request.POST.get('number')
-        email = request.POST.get('email')
-        Opentime = request.POST.get('opentime')
-        closetime = request.POST.get('closetime')
+        name = request.POST['name']
+        phone = request.POST['number']
+        email = request.POST['email']
+        Opentime = request.POST['opentime']
+        closetime = request.POST['closetime']
         ShopInfo = ShopData(name=name, phone=phone, email=email,
                             Opentime=Opentime, closetime=closetime, date=datetime.today())
         ShopInfo.save()
