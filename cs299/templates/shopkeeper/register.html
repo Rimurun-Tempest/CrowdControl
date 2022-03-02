@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}ShopKeeper {% endblock title %}
+{% block title %} ShopKeeper {% endblock title %}
 {% block body %}
 <div class="container">
-<h1 class="text-center">Registration</h1>
+<h1 class="text-center">ShopKeeper Registration</h1>
 <form method="post" action="/shopkeeper/register">
 {% csrf_token %}
     <div class="mb-3">
