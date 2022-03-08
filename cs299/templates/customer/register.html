@@ -19,21 +19,9 @@
       <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter Your Email Id">
     </div>
     <div class="mb-3">
-        <label for="exampleInputprefftime" class="form-label">Preffered Time Slot</label>
-        <input type="time" class="form-control" id="exampleInputpreffTime" name="prefftime">
-    </div>
-    <div class="mb-3">
-    <label>Interested Shops</label>
-    {% for shop in Shop_list %}
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name={{shop.name}}>
-        <label class="form-check-label" for="flexCheckDefault">
-          {{shop.name}}
-        </label>
-      </div>
-    {% endfor %}
-    </div>
-    
+        <label for="examplePassword" class="form-label">Password</label>
+        <input type="text" class="form-control" id="examplePassword" name="password" placeholder="Enter Your password">
+    </div>   
     <button type="submit" class="btn btn-primary">Submit</button>   
 </form>
 </div>
