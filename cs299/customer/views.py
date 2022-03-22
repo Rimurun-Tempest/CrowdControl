@@ -22,7 +22,6 @@ def register(request: HttpRequest):
 
     return render(request, 'customer/register.html')
 
-
 def profile(request):
     Shop_list = ShopData.objects.all()
     if request.method == "POST":
@@ -53,6 +52,7 @@ def CustomerLogin(request):
             return redirect('profile')
             # check redirect yourself once
         else:
+            messages.warning(request, 'Invalid Credentials!')
             return redirect('login')
     else:
         return render(request, 'customer/login.html')

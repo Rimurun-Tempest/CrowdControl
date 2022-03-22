@@ -20,12 +20,23 @@
             <div class="mb-3">
             <label>Interested Shops</label>
             {% for shop in Shop_list %}
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name={{shop.name}}>
-                <label class="form-check-label" for="flexCheckDefault">
-                {{shop.name}}
-                </label>
-                </div>
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{shop.name}}" aria-expanded="true" aria-controls="{{shop.name}}">
+                        {{shop.name}}
+                      </button>
+                    </h2>
+                    <div id="{{shop.name}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name={{shop.name}}>
+                            <label class="form-check-label" for="flexCheckDefault">
+                            {{shop.name}}
+                            </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             {% endfor %}
             </div>
             
