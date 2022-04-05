@@ -1,6 +1,12 @@
-from django.urls import path,include
+from django.urls import path, include
 from . import views
 
-urlpatterns=[
-    # path('register/',views.register,name='regsiter')
+app_name = 'customer'
+urlpatterns = [
+    path('', views.index, name='customer'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.userLogout, name='logout'),
+    path('query/', views.query, name='query'),
+    # path('profile/',views.profile,name="profile"),
 ]

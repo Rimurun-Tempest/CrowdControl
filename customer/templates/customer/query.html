@@ -1,0 +1,105 @@
+{% extends 'customer/index.html' %}
+{% block content%}
+{% load crispy_forms_tags %}
+<div class="container rounded bg-white mt-5 mb-5" >
+    <div class="row">
+        <div class="card col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                    width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                    class="font-weight-bold">{{user.first_name}}</span><span class="text-black-50"></span><span>
+                </span></div>
+                <div class="card col-md-20 border-right">
+                    <div class="p-3 py-6">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Customer Bio</h4>
+                        </div>
+                        <div>
+                            First Name: {{user.first_name}}<br><br>
+                            Last Name: {{user.last_name}}<br><br>
+                            Date Joined: {{user.date_joined}}<br><br>
+                            {% if user.last_login is none %}
+                            Last Login: None ( New User )
+                            {% else %}
+                            Last Login: {{user.last_login}}
+                            {% endif %}
+                            <br><br>
+
+                            {% if user.customer.prefftime1 is none %}
+                            Preferred Time-1 : Not Defined
+                            {% else %}
+                            Preferred Time-1 : {{user.customer.prefftime1}} 
+                            {% endif %}
+                            <br><br>
+
+                            {% if user.customer.prefftime2 is none%}
+                            Preferred Time-2 : Not Defined
+                            {% else %}
+                            Preferred Time-2 : {{user.customer.prefftime2}} 
+                            {% endif %}
+                            <br><br>
+
+                            {% if user.customer.prefftime3 is none %}
+                            Preferred Time-3 : Not Defined
+                            {% else %}
+                            Preferred Time-3 : {{user.customer.prefftime3}}
+                            {% endif %}  
+                            <br><br>
+
+
+
+                            {% comment %} Current Preferred Time-1 : {%if user.customer.prefftime1==Null %}{{user.customer.prefftime1}}<br>
+                            Current Preferred Time-2 : {{user.customer.prefftime2}}<br>
+                            Current Preferred Time-3 : {{user.customer.prefftime3}}<br> {% endcomment %}
+                            {% comment %} check this line {% endcomment %}
+                        </div>                                                                       
+                    </div>
+                </div>      
+
+        </div>
+        <div class="card col-md-6 border-right">
+            <div class="p-3 py-5">
+                {% comment %} <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"> Settings</h4>
+                </div>
+                <div class="row mt-2 ">
+                    <div class="col-md-5"><label class="labels">Name</label><input type="text" class="form-control"
+                            placeholder="first name" value=""></div>
+                    <div class="col-md-5"><label class="labels">Surname</label><input type="text" class="form-control"
+                            value="" placeholder="surname"></div>
+                </div> {% endcomment %}
+                <div class="row mt-5">
+                    <h4 class="text-right" >Customer Settings</h4>
+                    <div class="card-body">
+                        <form method="POST" >
+                            {% csrf_token %}
+                            {{form|crispy|linebreaks}}
+                            <select multiple style="width:25%;">
+                                <option value="" disabled selected>type A</option>
+                                <option value="hurr">1</option>
+                                <option value="hurr">D2urr</option>
+                                <option value="hurr">Du3rr</option>
+                                <option value="hurr">Dur4r</option>
+                                </select>
+                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                <input type="Submit" class="btn btn-primary" value="Submit">                                         
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span>Edit
+                        Experience</span><span class="border px-3 p-1 add-experience"><i
+                            class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
+                        class="form-control" placeholder="experience" value=""></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
+                        class="form-control" placeholder="additional details" value=""></div>
+            </div>
+        </div> -->
+    </div>
+</div>
+{% endblock %}
